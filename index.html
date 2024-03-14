@@ -41,7 +41,7 @@
             const graficaTarta = document.querySelector("#tartas");
 
             tarta.forEach((d) => {
-                graficaTarta.innerHTML += `<div class="col h-100 d-flex align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle><circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke="blue" stroke-width="3"></circle><circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke="red" stroke-width="3" stroke-dasharray="${d.mujer} ${100 - d.mujer}" stroke-dashoffset="25"></circle><text x="20" y="20" font-size="3" text-anchor="middle">${d.region}</text></svg></div>`;
+                graficaTarta.innerHTML += `<div class="col h-100 d-flex align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="white"></circle><circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke="blue" stroke-width="3"></circle><circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke="pink" stroke-width="3" stroke-dasharray="${d.mujer} ${100 - d.mujer}" stroke-dashoffset="25"></circle><text x="20" y="20" font-size="3" text-anchor="middle" fill= "blue">${d.region}</text></svg></div>`;
             });
 
             //SEGUNDO GRÁFICO
@@ -64,7 +64,7 @@
 
             lineal.censados.forEach((d, i) => {
                 coordenadas += i*50 + "," + Math.round(d*0.0001) + " ";
-                momentos += `<text x="${i*50}" y="460" font-size="5">${lineal.censos[i]}</text> `;
+                momentos += `<text x="${i*50}" y="460" font-size="5" fill="blue">${lineal.censos[i]}</text> `;
     
             })
 
@@ -72,7 +72,7 @@
 
             console.log(momentos);
 
-            graficaLineas.innerHTML += `<polyline points="${coordenadas}" fill="none" stroke="blue"/>`;
+            graficaLineas.innerHTML += `<polyline points="${coordenadas}" fill="none" stroke="pink"/>`;
 
             document.querySelector("#years").innerHTML += momentos;
 
@@ -84,7 +84,7 @@
                     {region:"Metropolitana", numero:8420729},
                     {region:"Valparaíso", numero:2010849},
                     {region:"Biobío", numero:1681225},
-                    {region:"otras", numero:7848086}
+                    {region:"Otras", numero:7848086}
                 ]
 
             const graficaBarras = document.querySelector("#barras");
@@ -92,10 +92,10 @@
             // AHORA ARMAREMOS LAS BARRAS
 
             barras.forEach((d, i) => {
-            graficaBarras.innerHTML += `<g transform="translate(0,${i*50})">
-                <rect x="10" y="10" width="${d.numero/500000}" height="10" />
-                <text x="10" y="10" fill="white">${d.region}</text>
-                <text x="10" y="${d.numero/500000}">${d.numero}</text>
+            graficaBarras.innerHTML += `<g transform="translate(0,${i*40})">
+                <rect x="10" y="25" width="${d.numero/100000}" height="10" fill="pink"/>
+                <text x="10" y="10" fill="blue" font-size="5">${d.region}</text>
+                <text x="10" y="22" font-size="10" fill="blue">${d.numero}</text>
             </g>`
             });
         </script>
