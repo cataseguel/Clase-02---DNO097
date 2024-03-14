@@ -9,19 +9,19 @@
     <body>
         <div class="container-fluid m-0 p-0">
             <div class="row">
-                <div class="col-12 p-5 text-center">Título</div>
+                <div class="col-12 p-5 text-center">Grafico de Tarta</div>
             </div>
             <div class="row g-0" style="height: 75vh;" id="tartas"></div>
 
             <div class="row">
-                <div class="col-12 p-5 text-center">Título</div>
+                <div class="col-12 p-5 text-center">Grafico de Linea</div>
                 <div class="col-12 p-5 text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
-                        <g transform="translate(0,500) scale(1,-1)" id="lineas"></g>
+                        <g transform="translate(0,450) scale(1,-1)" id="lineas"></g>
                         <g id="years"></g>
                     </svg>
                 </div>
-                <div class="col-12 p-5 text-center">Título</div>
+                <div class="col-12 p-5 text-center">Grafico de barra</div>
                 <div class="col-12 p-5 text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" id="barras"></svg>
                 </div> 
@@ -64,7 +64,7 @@
 
             lineal.censados.forEach((d, i) => {
                 coordenadas += i*50 + "," + Math.round(d*0.0001) + " ";
-                momentos += `<text x="${i*50}" y="480" font-size="5">${lineal.censos[i]}</text> `;
+                momentos += `<text x="${i*50}" y="460" font-size="5">${lineal.censos[i]}</text> `;
     
             })
 
@@ -72,7 +72,7 @@
 
             console.log(momentos);
 
-            graficaLineas.innerHTML += `<polyline points="${coordenadas}" fill="none" stroke="black"/>`;
+            graficaLineas.innerHTML += `<polyline points="${coordenadas}" fill="none" stroke="blue"/>`;
 
             document.querySelector("#years").innerHTML += momentos;
 
